@@ -6,14 +6,18 @@
   display: grid;
   grid-gap: 25px;
   -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   -ms-grid-rows: auto;
-      grid-template-rows: auto;
+  grid-template-rows: auto;
 }
 
+/* Ensures that all images fit the card size and have a consistent appearance */
 .product-grid img {
   width: 100%;
+  height: 200px; /* Set a fixed height */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
   border-radius: 8px;
+  display: block;
 }
 
 .details-meta {
