@@ -12,3 +12,9 @@ class GymDetails(DetailView):
         context = super().get_context_data(**kwargs)
         context['images'] = GymImages.objects.filter(product=self.get_object())
         return context
+
+class BrandList(ListView):
+    model = Brand
+
+class BrandDetails(DetailView):
+    pass
