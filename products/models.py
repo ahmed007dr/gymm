@@ -20,7 +20,7 @@ class Gym(models.Model):
     subtitle = models.TextField(_('subtitle'),max_length=400)
     discription = models.TextField(_('discription'),max_length=2000)
     brand = models.ForeignKey('Brand', verbose_name=_('brand'),related_name='gym_brand', on_delete=models.CASCADE , null=True)
-    slug = models.SlugField(blank=True,null=True)
+    slug = models.SlugField(blank=True,null=True,unique=True)
 
     def save(self, *args, **kwargs):
        self.slug = slugify(self.name)
