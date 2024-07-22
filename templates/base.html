@@ -12,26 +12,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- AUTHOR META -->
-        <meta name="author" content="">
-        <meta name="email" content="ahmed007eg@gmail.com">
+        <meta name="email" content="{{ settings_data.email_us }}">
         <meta name="profile" content="">
 
         <!-- TEMPLATE META -->
         <meta name="name" content="fitness group">
         <meta name="title" content="fitness group - fitness Template">
-        <meta name="keywords" content="fitness, gym, swim, runing, kids">
+        <meta name="keywords" content="fitness, gym, swim, running, kids">
         <!--=====================================
                     META-TAG PART END
         =======================================-->
 
         <!-- WEBPAGE TITLE -->
-        <title>Index Home - fitness group</title>
+        <title>{{ settings_data.name }}</title>
 
         <!--=====================================
                     CSS LINK PART START
         =======================================-->
         <!-- FAVICON -->
-        <link rel="icon" href="images/favicon.png">
+        <link rel="icon" href="{% static 'images/favicon.png' %}">
 
         <!-- FONTS -->
         <link rel="stylesheet" href="{% static 'en/fonts/flaticon/flaticon.css' %}">
@@ -48,7 +47,6 @@
         <link rel="stylesheet" href="{% static 'en/css/main.css' %}">
         <link rel="stylesheet" href="{% static 'en/css/index.css' %}">
         <link rel="stylesheet" href="{% static 'en/css/product-details.css' %}">
-
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
@@ -65,7 +63,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-5">
                         <div class="header-top-welcome">
-                            <p>Welcome fitness first !</p>
+                            <p>Welcome {{ settings_data.name }}!</p>
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-3">
@@ -77,13 +75,11 @@
                                     <option value="arabic">arabic</option>
                                 </select>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-4">
                         <ul class="header-top-list">
                             <li><a href="offer.html">offers</a></li>
-                            <li><a href="faq.html">need help</a></li>
                             <li><a href="contact.html">contact us</a></li>
                         </ul>
                     </div>
@@ -94,8 +90,6 @@
                     HEADER TOP PART END 
         =======================================-->
 
-
-
         <!--=====================================
                     HEADER PART START
         =======================================-->
@@ -103,16 +97,16 @@
             <div class="container">
                 <div class="header-content">
                     <div class="header-media-group">
-                        <button class="header-user"><img src="images/user.png" alt="user"></button>
-                        <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                        <button class="header-user"><img src="{% static 'images/user.png' %}" alt="user"></button>
+                        <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
 
                     <a href="index.html" class="header-logo">
-                        <img src="images/logo.png" alt="logo">
+                        <img src="{{ settings_data.logo.url }}" alt="logo">
                     </a>
                     <a href="login.html" class="header-widget" title="My Account">
-                        <img src="images/user.png" alt="user">
+                        <img src="{% static 'images/user.png' %}" alt="user">
                         <span>join</span>
                     </a>
 
@@ -120,14 +114,12 @@
                         <input type="text" placeholder="Search anything...">
                         <button><i class="fas fa-search"></i></button>
                     </form>
-
                 </div>
             </div>
         </header>
         <!--=====================================
                     HEADER PART END
         =======================================-->
-
 
         <!--=====================================
                     NAVBAR PART START
@@ -139,26 +131,25 @@
                         <div class="navbar-content">
                             <ul class="navbar-list">
                                 <li class="navbar-item dropdown">
-                                    <a class="navbar-link" href="/">  {% translate "home" %}</a>
+                                    <a class="navbar-link" href="/">{% translate "home" %}</a>
                                 </li>
-                                <li class="navbar-item ">
-                                    <a class="navbar-link " href="/products">{% translate "gym" %}</a>
+                                <li class="navbar-item">
+                                    <a class="navbar-link" href="/products">{% translate "gym" %}</a>
                                 </li>
-
                             </ul>
                             <div class="navbar-info-group">
                                 <div class="navbar-info">
                                     <i class="icofont-ui-touch-phone"></i>
                                     <p>
                                         <small>{% translate "call us" %}</small>
-                                        <span>{{settings_data.call_us}}</span>
+                                        <span>{{ settings_data.call_us }}</span>
                                     </p>
                                 </div>
                                 <div class="navbar-info">
                                     <i class="icofont-ui-email"></i>
                                     <p>
                                         <small>{% translate "email us" %}</small>
-                                        <span>{{settings_data.emails_us}}</span>
+                                        <span>{{ settings_data.email_us }}</span>
                                     </p>
                                 </div>
                             </div>
@@ -171,18 +162,8 @@
                     NAVBAR PART END
         =======================================-->
 
-
-
-
-
         {% block body %}
-
         {% endblock body %}
-
-
-
-
-
 
         <!--=====================================
                      FOOTER PART START
@@ -193,11 +174,11 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
                             <a class="footer-logo" href="#">
-                                <img src="images/logo.png" alt="logo">
+                                <img src="{% static 'images/logo.png' %}" alt="logo">
                             </a>
-                            <p class="footer-desc">Adipisci asperiores ipsum ipsa repellat consequatur repudiandae quisquam assumenda dolor perspiciatis sit ipsum dolor amet.</p>
+                            <p class="footer-desc">{{ settings_data.subtitle }}</p>
                             <ul class="footer-social">
-                                <li><a class="icofont-facebook" href="#"></a></li>
+                                <li><a class="icofont-facebook" href="{{ settings_data.facebook }}"></a></li>
                                 <li><a class="icofont-instagram" href="#"></a></li>
                             </ul>
                         </div>
@@ -209,20 +190,19 @@
                                 <li>
                                     <i class="icofont-ui-email"></i>
                                     <p>
-                                        <span>support@fitness group.com</span>
-                                        <span>carrer@fitness group.com</span>
+                                        <span>{{ settings_data.email_us }}</span>
+                                        <span>{{ settings_data.call_us }}</span>
                                     </p>
                                 </li>
                                 <li>
                                     <i class="icofont-ui-touch-phone"></i>
                                     <p>
-                                        <span>+120 279 532 13</span>
-                                        <span>+120 279 532 14</span>
+                                        <span>{{ settings_data.call_us }}</span>
                                     </p>
                                 </li>
                                 <li>
                                     <i class="icofont-location-pin"></i>
-                                    <p>1Hd- 50, 010 Avenue, NY 90001 United States</p>
+                                    <p>{{ settings_data.address }}</p>
                                 </li>
                             </ul>
                         </div>
@@ -233,16 +213,16 @@
                             <div class="footer-links">
                                 <ul>
                                     <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Order History</a></li>
-                                    <li><a href="#">Order Tracking</a></li>
-                                    <li><a href="#">Best Seller</a></li>
-                                    <li><a href="#">New Arrivals</a></li>
+                                    <li><a href="#">Gym</a></li>
+                                    <li><a href="#">Swim</a></li>
+                                    <li><a href="#">Body Building</a></li>
+                                    <li><a href="#">Fighter</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="#">Location</a></li>
                                     <li><a href="#">Affiliates</a></li>
                                     <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Carrer</a></li>
+                                    <li><a href="#">Career</a></li>
                                     <li><a href="#">Faq</a></li>
                                 </ul>
                             </div>
@@ -251,10 +231,10 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
                             <h3 class="footer-title">Download App</h3>
-                            <p class="footer-desc">Lorem ipsum dolor sit amet tenetur dignissimos ipsum eligendi autem obcaecati minus ducimus totam reprehenderit exercitationem!</p>
+                            <p class="footer-desc">{{ settings_data.subtitle }}</p>
                             <div class="footer-app">
-                                <a href="#"><img src="images/google-store.png" alt="google"></a>
-                                <a href="#"><img src="images/app-store.png" alt="app"></a>
+                                <a href="#"><img src="{% static 'images/google-store.png' %}" alt="google"></a>
+                                <a href="#"><img src="{% static 'images/app-store.png' %}" alt="app"></a>
                             </div>
                         </div>
                     </div>
@@ -262,12 +242,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="footer-bottom">
-                            <p class="footer-copytext">&copy;  All Copyrights Reserved by <a target="_blank" href=''>mohamed mahran</a></p>
+                            <p class="footer-copytext">&copy; All Rights Reserved by <a target="_blank" href=''>{{ settings_data.name }}</a></p>
                             <div class="footer-card">
-                                <a href="#"><img src="images/payment/jpg/01.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/02.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/03.jpg" alt="payment"></a>
-                                <a href="#"><img src="images/payment/jpg/04.jpg" alt="payment"></a>
+                                <a href="#"><img src="{% static 'images/payment/jpg/01.jpg' %}" alt="payment"></a>
+                                <a href="#"><img src="{% static 'images/payment/jpg/02.jpg' %}" alt="payment"></a>
+                                <a href="#"><img src="{% static 'images/payment/jpg/03.jpg' %}" alt="payment"></a>
+                                <a href="#"><img src="{% static 'images/payment/jpg/04.jpg' %}" alt="payment"></a>
                             </div>
                         </div>
                     </div>
@@ -278,7 +258,6 @@
                       FOOTER PART END
         =======================================-->
         
-
         <!--=====================================
                     JS LINK PART START
         =======================================-->
@@ -303,9 +282,3 @@
         =======================================-->
     </body>
 </html>
-
-
-
-
-
-
