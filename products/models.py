@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
 
-# from django.contrib.auth.models import User
-# Create your models here.
+
+
 FLAG_TYPE=(
     ('SOHAG','SOHAG'),
     ('AKHMEM','AKHMEM'),
@@ -11,14 +12,14 @@ FLAG_TYPE=(
                         )
 
 class Gym(models.Model):
-    name = models.CharField(max_length=120)
-    flag = models.CharField(max_length=20,choices=FLAG_TYPE)
-    price = models.FloatField()
-    image = models.ImageField(upload_to='gym')
+    name = models.CharField(max_length=120,verbose_name=_('name'))
+    flag = models.CharField(_('flag'),max_length=20,choices=FLAG_TYPE)
+    price = models.FloatField(_('price'))
+    image = models.ImageField(_('image'),upload_to='gym')
     sku = models.IntegerField()
-    subtitle = models.TextField(max_length=400)
-    discription = models.TextField(max_length=2000)
-    brand = models.ForeignKey('Brand', related_name='gym_brand', on_delete=models.CASCADE , null=True)
+    subtitle = models.TextField(_('subtitle'),max_length=400)
+    discription = models.TextField(_('discription'),max_length=2000)
+    brand = models.ForeignKey('Brand', verbose_name=_('brand'),related_name='gym_brand', on_delete=models.CASCADE , null=True)
     slug = models.SlugField(blank=True,null=True)
 
     def save(self, *args, **kwargs):
