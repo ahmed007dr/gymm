@@ -36,13 +36,13 @@
 }
 
 .banner-1 {
-  background: -webkit-gradient(linear, left top, right top, from(#45f76354), to(#ffc3d024));
-  background: linear-gradient(to right, #45f76354, #ffc3d024);
+  background: -webkit-gradient(linear, left top, right top, from(#f145f769), to(#f145f769));
+  background: linear-gradient(to right, #f145f769, #f145f769);
 }
 
 .banner-2 {
-  background: -webkit-gradient(linear, right top, left top, from(#45f76354), to(#ffc3d024));
-  background: linear-gradient(to left, #45f76354, #ffc3d024);
+  background: -webkit-gradient(linear, right top, left top, from(#f145f769), to(#f145f769));
+  background: linear-gradient(to left, #f145f769, #f145f769);
 }
 
 .banner-content h1 {

@@ -7,28 +7,28 @@
                     BANNER PART START
         =======================================-->
         <section class="home-index-slider slider-arrow slider-dots">
-            <div class="banner-part banner-1">
+            <div class="banner-part banner-1 style=background: url({{settings_data.logo_banner.url}}) no-repeat center; ">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-6 col-lg-6">
                             <div class="banner-content">
-                                <h1>free home delivery within 24 hours now.</h1>
-                                <p>Lorem ipsum dolor consectetur adipisicing elit modi consequatur eaque expedita porro necessitatibus eveniet voluptatum quis pariatur Laboriosam molestiae architecto excepturi</p>
+                                <h1>{{settings_data.text_banner}}</h1>
+                                <p>{{settings_data.text_banner2}}</p>
                                 <div class="banner-btn">
-                                    <a class="btn btn-inline" href="shop-4column.html">
+                                    <a class="btn btn-inline" href="#">
                                         <i class="fas fa-shopping-basket"></i>
-                                        <span>shop now</span>
+                                        <span>انضم الينا</span>
                                     </a>
                                     <a class="btn btn-outline" href="offer.html">
                                         <i class="icofont-sale-discount"></i>
-                                        <span>get offer</span>
+                                        <span>احصل علي خصومات</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6">
                             <div class="banner-img">
-                                <img src="images/home/index/01.png" alt="index">
+                                <img src="{{settings_data.logo_banner.url}}" >
                             </div>
                         </div>
                     </div>
@@ -37,23 +37,23 @@
             <div class="banner-part banner-2">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-md-8 col-lg-6">
                             <div class="banner-img">
-                                <img src="images/home/index/02.png" alt="index">
+                                <img src="{{settings_data.logo_banner.url}}">
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6">
                             <div class="banner-content">
-                                <h1>free home delivery within 24 hours now.</h1>
-                                <p>Lorem ipsum dolor consectetur adipisicing elit modi consequatur eaque expedita porro necessitatibus eveniet voluptatum quis pariatur Laboriosam molestiae architecto excepturi</p>
+                                <h1>{{settings_data.text_banner}}</h1>
+                                <p>{{settings_data.text_banner2}}</p>
                                 <div class="banner-btn">
-                                    <a class="btn btn-inline" href="shop-4column.html">
+                                    <a class="btn btn-inline" href="#">
                                         <i class="fas fa-shopping-basket"></i>
-                                        <span>shop now</span>
+                                        <span>انضم الينا</span>
                                     </a>
-                                    <a class="btn btn-outline" href="offer.html">
+                                    <a class="btn btn-outline" href="#">
                                         <i class="icofont-sale-discount"></i>
-                                        <span>get offer</span>
+                                        <span>احصل علي خصومات</span>
                                     </a>
                                 </div>
                             </div>
@@ -76,32 +76,38 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-heading">
-                            <h2>our featured items</h2>
+                            <div class="banner-btn">
+                                <a class="btn btn-inline" href="/products/">
+                                    <i class="fas fa-shopping-basket"></i>
+                                    <span>فروعنا</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
+                    {% for object in object_list %}
                     <div class="col">
                         <div class="feature-card">
                             <div class="feature-media">
                                 <div class="feature-label">
-                                    <label class="label-text feat">feature</label>
+                                    <label class="label-text feat">{{object.flag}}</label>
                                 </div>
                                 <button class="feature-wish wish">
                                     <i class="fas fa-heart"></i>
                                 </button>
-                                <a class="feature-image" href="product-video.html">
-                                    <img src="images/product/09.jpg" alt="product">
+                                <a class="feature-image" href="/products/{{object.slug}}">
+                                    <img src="{{object.image.url}}" alt="product">
                                 </a>
                                 <div class="feature-widget">
-                                    <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                                    <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
+                                    <a title="Product Compare" href="/products/{{object.slug}}" class="fas fa-random"></a>
+                                    <a title="Product Video" href="/products/{{object.slug}}" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
+                                    <a title="Product View" href="/products/{{object.slug}}" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
                                 </div>
                             </div>
                             <div class="feature-content">
                                 <h6 class="feature-name">
-                                    <a href="product-video.html">fresh organic green chilis</a>
+                                    <a href="/products/{{object.slug}}">{{object.name}}</a>
                                 </h6>
                                 <div class="feature-rating">
                                     <i class="active icofont-star"></i>
@@ -109,257 +115,19 @@
                                     <i class="active icofont-star"></i>
                                     <i class="active icofont-star"></i>
                                     <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3 Reviews)</a>
+                                    <a href="/products/{{object.slug}}">(3 Reviews)</a>
                                 </div>
                                 <h6 class="feature-price">
-                                    <del>$34</del>
-                                    <span>$28<small>/piece</small></span>
+                                    <del>{{object.subtitle}}</del>
                                 </h6>
-                                <p class="feature-desc">Lorem ipsum dolor sit consectetur adipisicing xpedita dicta amet olor ut eveniet commodi...</p>
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>add</span>
-                                </button>
-                                <div class="product-action">
-                                    <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
-                                    <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1">
-                                    <button class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
-                                </div>
+                                <p class="feature-desc">{{object.subtitle}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="feature-card">
-                            <div class="feature-media">
-                                <div class="feature-label">
-                                    <label class="label-text feat">feature</label>
-                                </div>
-                                <button class="feature-wish wish">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                                <a class="feature-image" href="product-video.html">
-                                    <img src="images/product/10.jpg" alt="product">
-                                </a>
-                                <div class="feature-widget">
-                                    <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                                    <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
-                                </div>
-                            </div>
-                            <div class="feature-content">
-                                <h6 class="feature-name">
-                                    <a href="product-video.html">fresh organic green chilis</a>
-                                </h6>
-                                <div class="feature-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3 Reviews)</a>
-                                </div>
-                                <h6 class="feature-price">
-                                    <del>$34</del>
-                                    <span>$28<small>/piece</small></span>
-                                </h6>
-                                <p class="feature-desc">Lorem ipsum dolor sit consectetur adipisicing xpedita dicta amet olor ut eveniet commodi...</p>
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>add</span>
-                                </button>
-                                <div class="product-action">
-                                    <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
-                                    <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1">
-                                    <button class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="feature-card">
-                            <div class="feature-media">
-                                <div class="feature-label">
-                                    <label class="label-text feat">feature</label>
-                                </div>
-                                <button class="feature-wish wish">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                                <a class="feature-image" href="product-video.html">
-                                    <img src="images/product/11.jpg" alt="product">
-                                </a>
-                                <div class="feature-widget">
-                                    <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                                    <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
-                                </div>
-                            </div>
-                            <div class="feature-content">
-                                <h6 class="feature-name">
-                                    <a href="product-video.html">fresh organic green chilis</a>
-                                </h6>
-                                <div class="feature-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3 Reviews)</a>
-                                </div>
-                                <h6 class="feature-price">
-                                    <del>$34</del>
-                                    <span>$28<small>/piece</small></span>
-                                </h6>
-                                <p class="feature-desc">Lorem ipsum dolor sit consectetur adipisicing xpedita dicta amet olor ut eveniet commodi...</p>
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>add</span>
-                                </button>
-                                <div class="product-action">
-                                    <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
-                                    <input class="action-input" title="Quantity Number" type="text" name="quantity" value="1">
-                                    <button class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="feature-card">
-                            <div class="feature-media">
-                                <div class="feature-label">
-                                    <label class="label-text feat">feature</label>
-                                </div>
-                                <button class="feature-wish wish">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                                <a class="feature-image" href="product-video.html">
-                                    <img src="images/product/12.jpg" alt="product">
-                                </a>
-                                <div class="feature-widget">
-                                    <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                                    <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
-                                </div>
-                            </div>
-                            <div class="feature-content">
-                                <h6 class="feature-name">
-                                    <a href="product-video.html">fresh organic green chilis</a>
-                                </h6>
-                                <div class="feature-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3 Reviews)</a>
-                                </div>
-                                <h6 class="feature-price">
-                                    <del>$34</del>
-                                    <span>$28<small>/piece</small></span>
-                                </h6>
-                                <p class="feature-desc">Lorem ipsum dolor sit consectetur adipisicing xpedita dicta amet olor ut eveniet commodi...</p>
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>add</span>
-                                </button>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="feature-card">
-                            <div class="feature-media">
-                                <div class="feature-label">
-                                    <label class="label-text feat">feature</label>
-                                </div>
-                                <button class="feature-wish wish">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                                <a class="feature-image" href="product-video.html">
-                                    <img src="images/product/13.jpg" alt="product">
-                                </a>
-                                <div class="feature-widget">
-                                    <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                                    <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
-                                </div>
-                            </div>
-                            <div class="feature-content">
-                                <h6 class="feature-name">
-                                    <a href="product-video.html">fresh organic green chilis</a>
-                                </h6>
-                                <div class="feature-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3 Reviews)</a>
-                                </div>
-                                <h6 class="feature-price">
-                                    <del>$34</del>
-                                    <span>$28<small>/piece</small></span>
-                                </h6>
-                                <p class="feature-desc">Lorem ipsum dolor sit consectetur adipisicing xpedita dicta amet olor ut eveniet commodi...</p>
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>add</span>
-                                </button>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="feature-card">
-                            <div class="feature-media">
-                                <div class="feature-label">
-                                    <label class="label-text feat">feature</label>
-                                </div>
-                                <button class="feature-wish wish">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                                <a class="feature-image" href="product-video.html">
-                                    <img src="images/product/14.jpg" alt="product">
-                                </a>
-                                <div class="feature-widget">
-                                    <a title="Product Compare" href="compare.html" class="fas fa-random"></a>
-                                    <a title="Product Video" href="https://youtu.be/9xzcVxSBbG8" class="venobox fas fa-play" data-autoplay="true" data-vbtype="video"></a>
-                                    <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
-                                </div>
-                            </div>
-                            <div class="feature-content">
-                                <h6 class="feature-name">
-                                    <a href="product-video.html">fresh organic green chilis</a>
-                                </h6>
-                                <div class="feature-rating">
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="active icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <a href="product-video.html">(3 Reviews)</a>
-                                </div>
-                                <h6 class="feature-price">
-                                    <del>$34</del>
-                                    <span>$28<small>/piece</small></span>
-                                </h6>
-                                <p class="feature-desc">Lorem ipsum dolor sit consectetur adipisicing xpedita dicta amet olor ut eveniet commodi...</p>
-                                <button class="product-add" title="Add to Cart">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>JOINE</span>
-                                </button>
-
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="section-btn-25">
-                            <a href="shop-4column.html" class="btn btn-outline">
-                                <i class="fas fa-eye"></i>
-                                <span>show more</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -377,9 +145,9 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mx-auto">
                         <div class="countdown-content">
-                            <h3>special discount offer for vegetable items</h3>
-                            <p>Reprehenderit sed quod autem molestiae aut modi minus veritatis iste dolorum suscipit quis voluptatum fugiat mollitia quia minima</p>
-                            <div class="countdown countdown-clock" data-countdown="2021/12/31">
+                            <h3>special discount offer </h3>
+                            <p>احصل علي عروض و خصومات تصل 100% فور الاشتراك</p>
+                            <div class="countdown countdown-clock" data-countdown="2024/07/30">
                                 <span class="countdown-time"><span>00</span><small>days</small></span>
                                 <span class="countdown-time"><span>00</span><small>hours</small></span>
                                 <span class="countdown-time"><span>00</span><small>minutes</small></span>
@@ -394,7 +162,7 @@
                     <div class="col-lg-1"></div>
                     <div class="col-lg-5">
                         <div class="countdown-img">
-                            <img src="images/countdown.png" alt="countdown">
+                            <img src="{{settings_data.logo}}" alt="countdown">
                             <div class="countdown-off">
                                 <span>20%</span>
                                 <span>off</span>

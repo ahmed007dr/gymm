@@ -98,7 +98,7 @@
                 <div class="header-content">
                     <div class="header-media-group">
                         <button class="header-user"><img src="{% static 'images/user.png' %}" alt="user"></button>
-                        <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+                        <a href="index.html"><img src="{{settings_data.logo.url}}" alt="logo"></a>
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
 
@@ -174,7 +174,7 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
                             <a class="footer-logo" href="#">
-                                <img src="{% static 'images/logo.png' %}" alt="logo">
+                                <img src={{ settings_data.logo.url }} alt="logo">
                             </a>
                             <p class="footer-desc">{{ settings_data.subtitle }}</p>
                             <ul class="footer-social">
@@ -220,10 +220,8 @@
                                 </ul>
                                 <ul>
                                     <li><a href="#">Location</a></li>
-                                    <li><a href="#">Affiliates</a></li>
                                     <li><a href="#">Contact</a></li>
                                     <li><a href="#">Career</a></li>
-                                    <li><a href="#">Faq</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -246,8 +244,6 @@
                             <div class="footer-card">
                                 <a href="#"><img src="{% static 'images/payment/jpg/01.jpg' %}" alt="payment"></a>
                                 <a href="#"><img src="{% static 'images/payment/jpg/02.jpg' %}" alt="payment"></a>
-                                <a href="#"><img src="{% static 'images/payment/jpg/03.jpg' %}" alt="payment"></a>
-                                <a href="#"><img src="{% static 'images/payment/jpg/04.jpg' %}" alt="payment"></a>
                             </div>
                         </div>
                     </div>
