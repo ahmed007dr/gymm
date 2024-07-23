@@ -67,7 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'settings.settings_context_processor.get_settings',
+                'settings.context_processors.get_settings',  # Add this line
             ],
         },
     },
