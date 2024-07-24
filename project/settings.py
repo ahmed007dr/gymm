@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*r@f7k)8q3sk#kq3%%r-nh!qd!e5fejs(qo@qkv3y=%!v^c-!g
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['embabi-online-shop.onrender.com']
+ALLOWED_HOSTS = ['Mahran-Group.onrender.com']
 
 
 # Application definition
