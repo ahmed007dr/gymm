@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-*r@f7k)8q3sk#kq3%%r-nh!qd!e5fejs(qo@qkv3y=%!v^c-!g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['embabi-online-shop.onrender.com']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['embabi-online-shop.onrender.com']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'settings',
 
     'products',
+    'accounts',
 
 ]
 
@@ -137,3 +138,30 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "DANGER",
+}
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Make sure this is included
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ahmed.tamem.eg@gmail.com'  
+EMAIL_HOST_PASSWORD = 'ffsapmlfgdjupadu'     
+SITE_ID = 1  
+
+SESSION_EXPIRE_SECONDS = 3600  # one mint #django-session-timeout
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_TIMEOUT_REDIRECT = 'accounts/login/' # redicrt
