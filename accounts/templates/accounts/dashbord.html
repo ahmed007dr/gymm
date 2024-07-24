@@ -7,8 +7,18 @@
 <section class="section-conten padding-y bg">
     <div class="container">
         <div class="row">
-            {% include 'include/dashbord_sidebar.html' %}
-        <main class="col-md-9">
+            <aside class="col-md-3">
+                <!-- SIDEBAR -->
+                <ul class="list-group">
+                    <a class="list-group-item {% if '/dashbord/' in request.path %}active{% endif %}" href="{% url 'dashbord' %}">Dashboard</a>
+                    <a class="list-group-item {% if '/edit_profile/' in request.path %}active{% endif %}" href="{% url 'edit_profile' %}">Edit Profile</a>
+                    <a class="list-group-item {% if '/changePassword/' in request.path %}active{% endif %}" href="{% url 'changePassword' %}">Change Password</a>
+                </ul>
+                <br>
+                <a class="btn btn-light btn-block" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> <span class="text">Log out</span></a>
+                <!-- SIDEBAR END -->
+            </aside>
+                    <main class="col-md-9">
             <article class="card">
             <header class="card-header">
                 <strong class="d-inline-block mr-3">logged in as :  </strong>
@@ -18,11 +28,6 @@
                 <div class="row"> 
                     <div class="col-md-6">
                         <div class="card" style="text-align: center;">
-                            <!-- <div class="card-body">
-                                <h5 class='cart-title'> total order </h5>
-                                <h4>{{order_count}}</h4>
-                                <a href="{% url 'my_orders' %}"> view orders</a>
-                            </div> -->
                         </div>
 
                     </div> <!-- row.// -->
