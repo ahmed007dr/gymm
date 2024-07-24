@@ -105,11 +105,29 @@
                     <a href="index.html" class="header-logo">
                         <img src="{{ settings_data.logo.url }}" alt="logo">
                     </a>
-                    <a href="login.html" class="header-widget" title="My Account">
-                        <img src="{% static 'images/user.png' %}" alt="user">
-                        <span>join</span>
-                    </a>
-
+                    <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
+                        <div class="d-flex justify-content-end mb-3 mb-lg-0">
+                            {% if user.id is None %}
+                            <div class="widget-header">
+                                <small class="title text-muted">Welcome guest!</small>
+                                <div> 
+                                    <a href="{% url 'login' %}">Sign in</a> <span class="dark-transp"> | </span>
+                                    <a href="{% url 'register' %}"> Register</a>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="widget-header">
+                                <small class="title text-muted">Welcome {{user.first_name}}!</small>
+                                <div> 
+                                    <a href="{% url 'dashbord' %}">Dashbord</a> <span class="dark-transp"> | </span>
+                                    <a href="{% url 'logout' %}"> log out</a>
+                                </div>
+                            </div>
+    
+                            {% endif %}
+                        </div> <!-- widgets-wrap.// -->
+                    </div> <!-- col.// -->
+    
                     <form class="header-form">
                         <input type="text" placeholder="Search anything...">
                         <button><i class="fas fa-search"></i></button>
