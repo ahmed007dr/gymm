@@ -170,6 +170,6 @@ SESSION_EXPIRE_SECONDS = 3600  # one mint #django-session-timeout
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = 'accounts/login/' # redicrt
 
-
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ('.map',)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 django_heroku.settings(locals())
