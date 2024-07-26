@@ -53,7 +53,7 @@
     </head>
     <body>
         <div class="backdrop"></div>
-        <a class="backtop fas fa-arrow-up" href="/"></a>
+        <a class="backtop fas fa-arrow-up" href="#"></a>
         
         <!--=====================================
                     HEADER TOP PART START
@@ -79,8 +79,8 @@
                     </div>
                     <div class="col-md-7 col-lg-4">
                         <ul class="header-top-list">
-                            <li><a href="/products/">offers</a></li>
-                            <li><a href="/">contact us</a></li>
+                            <li><a href="offer.html">offers</a></li>
+                            <li><a href="contact.html">contact us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -97,12 +97,12 @@
             <div class="container">
                 <div class="header-content">
                     <div class="header-media-group">
-                        <button class="header-user"><img src="{{settings_data.logo.url }}" alt="user"></button>
-                        <a href="/products/"><img src="{{settings_data.logo.url}}" alt="logo"></a>
+                        <button class="header-user"><img src="{% static 'images/user.png' %}" alt="user"></button>
+                        <a href="index.html"><img src="{{settings_data.logo.url}}" alt="logo"></a>
                         <button class="header-src"><i class="fas fa-search"></i></button>
                     </div>
 
-                    <a href="/products/" class="header-logo">
+                    <a href="index.html" class="header-logo">
                         <img src="{{ settings_data.logo.url }}" alt="logo">
                     </a>
                     <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
@@ -191,13 +191,13 @@
                 <div class="row">
                     <div class="col-sm-6 col-xl-3">
                         <div class="footer-widget">
-                            <a class="footer-logo" href="/">
+                            <a class="footer-logo" href="#">
                                 <img src={{ settings_data.logo.url }} alt="logo">
                             </a>
                             <p class="footer-desc">{{ settings_data.subtitle }}</p>
                             <ul class="footer-social">
                                 <li><a class="icofont-facebook" href="{{ settings_data.facebook }}"></a></li>
-                                <li><a class="icofont-instagram" href="/"></a></li>
+                                <li><a class="icofont-instagram" href="#"></a></li>
                             </ul>
                         </div>
                     </div>
